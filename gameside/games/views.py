@@ -6,7 +6,6 @@ from .serializers import GameSerializer
 
 @require_GET
 def game_list(request):
-    print(request.GET.get('category'))
     category = request.GET.get('category')
     platform = request.GET.get('platform')
     games = Game.objects.all()
