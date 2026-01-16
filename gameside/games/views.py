@@ -8,11 +8,7 @@ from .serializers import GameSerializer
 def game_list(request):
     category = request.GET.get('category')
     platform = request.GET.get('platform')
-    games = Game.objects.all()
-    if category:
-        games = games.filter(category__name=category)
-    if platform:
-        games = games.filter(platform__name=platform)
+    games = Game.objects.filter(category__name=category).filter(platform__name=platform)
 
     serializer = GameSerializer(games, request=request)
     return serializer.json_response()
