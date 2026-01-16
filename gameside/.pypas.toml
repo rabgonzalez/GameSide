@@ -1,4 +1,4 @@
-version = "0.1.2"
+version = "0.1.3"
 slug = "gameside"
 bundle = [
     "/docs/README.pdf",
@@ -32,3 +32,4 @@ test_cmd = "uv run pytest"
 "0.1.0" = "Primera versión"
 "0.1.1" = "Ignora carpetas cache al crear el zip"
 "0.1.2" = "Integra pytest.ini en pyproject.toml"
+"0.1.3" = "Añade correciones menores en enunciado"
