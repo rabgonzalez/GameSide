@@ -1,5 +1,6 @@
 from categories.serializers import CategorySerializer
 from shared.serializers import BaseSerializer
+from users.serializers import UserSerializer
 
 
 class GameSerializer(BaseSerializer):
@@ -26,7 +27,7 @@ class ReviewSerializer(BaseSerializer):
             'rating': instance.rating,
             'comment': instance.comment,
             'game': GameSerializer(instance.game).serialize(),
-            'author': None,
+            'author': UserSerializer(instance.author).serialize(),
             'created_at': instance.created_at.isoformat(),
             'updated_at': instance.updated_at.isoformat(),
         }
