@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse
 
-# Create your views here.
+
+def custom_405(request, exception):
+    return JsonResponse({'Error', 'Method not allowed'}, status=405)

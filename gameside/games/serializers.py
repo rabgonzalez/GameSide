@@ -1,3 +1,4 @@
+from categories.serializers import CategorySerializer
 from shared.serializers import BaseSerializer
 
 
@@ -13,6 +14,19 @@ class GameSerializer(BaseSerializer):
             'stock': instance.stock,
             'released_at': instance.released_at.isoformat(),
             'pegi': instance.pegi,
-            'category': instance.category.name,
+            'category': CategorySerializer(instance.category).serialize(),
             'platforms': None,
+        }
+
+
+class ReviewSerializer(BaseSerializer):
+    def serialize_instance(self, instance) -> dict:
+        return {
+            'id': instance.pk,
+            'rating': instance.rating,
+            'comment': instance.comment,
+            'game': GameSerializer(instance.game).serialize(),
+            'author': None,
+            'created_at': instance.created_at.isoformat(),
+            'updated_at': instance.updated_at.isoformat(),
         }

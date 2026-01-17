@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'shared.apps.SharedConfig',
 ]
 
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'main.exceptions.exceptionHandler',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
